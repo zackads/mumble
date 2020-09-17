@@ -7,5 +7,11 @@ describe Mumble do
         expect(Mumble.new.mumble_letters('')).to eq ''
       end
     end
+
+    context 'given a single upper case character string' do
+      it 'returns the given string' do
+        expect(Mumble.new.mumble_letters('A')).to eq 'A'
+      end
+    end
   end
 end
