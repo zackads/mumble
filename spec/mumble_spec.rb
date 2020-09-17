@@ -1,11 +1,11 @@
 require('mumble')
 
-describe HelloWorld do
-  context 'When testing the HelloWorld class' do
-    it "The say_hello method should return 'Hello World'" do
-      hw = HelloWorld.new
-      message = hw.say_hello
-      expect(message).to eq 'Hello World!'
+describe Mumble do
+  describe '.mumble_letters' do
+    context 'given an empty string' do
+      it 'returns an empty string' do
+        expect(Mumble.new.mumble_letters('')).to eq ''
+      end
     end
   end
 end
