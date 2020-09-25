@@ -19,5 +19,11 @@ describe Mumble do
         expect(Mumble.new.mumble_letters('B')).to eq 'B'
       end
     end
+
+    context 'given a string of two upper case characters' do
+      it 'returns the string mumbled' do
+        expect(Mumble.new.mumble_letters('AB')).to eq 'A-Bb'
+      end
+    end
   end
 end
