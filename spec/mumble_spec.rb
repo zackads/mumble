@@ -24,6 +24,7 @@ describe Mumble do
       it 'returns the string mumbled' do
         expect(Mumble.new.mumble_letters('AB')).to eq 'A-Bb'
         expect(Mumble.new.mumble_letters('BC')).to eq 'B-Cc'
+        expect(Mumble.new.mumble_letters('CD')).to eq 'C-Dd'
       end
     end
   end
