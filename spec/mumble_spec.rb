@@ -27,5 +27,11 @@ describe Mumble do
         expect(Mumble.new.mumble_letters('CD')).to eq 'C-Dd'
       end
     end
+
+    context 'given a string of two lower case characters' do
+      it 'returns the string mumbled' do
+        expect(Mumble.new.mumble_letters('ab')).to eq 'A-Bb'
+      end
+    end
   end
 end
