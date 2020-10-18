@@ -2,29 +2,29 @@ require('mumble')
 
 describe Mumble do
   describe '.mumble_letters' do
-    context 'given an empty string' do
-      it 'returns an empty string' do
-        expect(Mumble.new.mumble_letters('')).to eq ''
-      end
-    end
+    expectations = [
+      { input: '', expected_output: '' },
+      { input: 'A', expected_output: 'A' },
+      { input: 'B', expected_output: 'B' },
+      { input: 'AB', expected_output: 'A-Bb' },
+      { input: 'BC', expected_output: 'B-Cc' },
+      { input: 'CD', expected_output: 'C-Dd' },
+      { input: 'ab', expected_output: 'A-Bb' },
+      { input: 'bc', expected_output: 'B-Cc' }
+    ]
 
-    context 'given a single upper case character string' do
-      it 'returns the given string' do
-        expect(Mumble.new.mumble_letters('A')).to eq 'A'
-      end
-    end
+    expectations.each do |test_case|
+      context "given #{test_case[:input]}" do
+        it "expect #{test_case[:expected_output]}" do
+          # Arrange
+          mumbler = Mumble.new
 
-    context 'given another uppercase character string' do
-      it 'returns the given string' do
-        expect(Mumble.new.mumble_letters('B')).to eq 'B'
-      end
-    end
+          # Act
+          output = mumbler.mumble_letters(test_case[:input])
 
-    context 'given a string of two upper case characters' do
-      it 'returns the string mumbled' do
-        expect(Mumble.new.mumble_letters('AB')).to eq 'A-Bb'
-        expect(Mumble.new.mumble_letters('BC')).to eq 'B-Cc'
-        expect(Mumble.new.mumble_letters('CD')).to eq 'C-Dd'
+          # Assert
+          expect(output).to eq test_case[:expected_output]
+        end
       end
     end
   end
