@@ -10,11 +10,13 @@ describe Mumble do
       { input: 'BC', expected_output: 'B-Cc' },
       { input: 'CD', expected_output: 'C-Dd' },
       { input: 'ab', expected_output: 'A-Bb' },
-      { input: 'bc', expected_output: 'B-Cc' }
+      { input: 'bc', expected_output: 'B-Cc' },
+      { input: 'cd', expected_output: 'C-Dd' },
+      { input: 'ABC', expected_output: 'A-Bb-Ccc' }
     ]
 
     expectations.each do |test_case|
-      context "given #{test_case[:input]}" do
+      context "given #{test_case[:input]}," do
         it "expect #{test_case[:expected_output]}" do
           # Arrange
           mumbler = Mumble.new
